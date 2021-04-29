@@ -1,13 +1,12 @@
-import React from "react";
-import {Header} from "../../components/header/header";
+import React from 'react';
+import {Header} from '../../components/header/header';
+import {Dashboard} from '../../domain/dashboard/dashboard';
 
 export const Home = () => {
-    const helloWorld = "Hello World Home";
-
     return (
         <>
             <Header />
-            <h2>{helloWorld}</h2>
+            <Dashboard />
         </>
     );
 };
