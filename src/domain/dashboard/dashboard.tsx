@@ -1,12 +1,13 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import {ShowDebts} from '../show-debts/show-debts';
 
 export const Dashboard = () => {
     const useStyles = makeStyles({
         sectionContainer: {
             backgroundColor: '#434141',
             width: '100%',
-            height: 400
+            height: '100vh'
         }
     });
 
@@ -15,7 +16,7 @@ export const Dashboard = () => {
     return (
         <>
             <section className={classes.sectionContainer}>
-                <div>Hello World</div>
+                <ShowDebts />
             </section>
         </>
     );
