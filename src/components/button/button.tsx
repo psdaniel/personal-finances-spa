@@ -12,6 +12,7 @@ export const Button = () => {
             fontWeight: 'bold',
             padding: '1em',
             width: MainTheme.buttons.width,
+            height: 62,
             borderRadius: 4,
             textAlign: 'center',
             cursor: 'pointer',

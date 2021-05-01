@@ -7,18 +7,30 @@ import {GetValues} from '../get-values/get-values';
 
 export const ShowFinances = () => {
     const useStyles = makeStyles({
-        showFinancesContainer: {
+        feedComponent: {
             display: 'flex',
             backgroundColor: MainTheme.colors['black-2'],
-            height: 700,
+            justifyContent: 'center'
+        },
+        showFinancesContainer: {
+            display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-end',
-            alignItems: 'center'
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: 700,
+            width: 700
         },
         financesFeed: {
             width: 500,
             height: 500,
-            backgroundColor: '#fefefe'
+            backgroundColor: '#fefefe',
+            marginBottom: 4
+        },
+        financesInputContainer: {
+            display: 'flex',
+            padding: 2,
+            justifyContent: 'space-between',
+            width: 500
         }
     });
 
@@ -26,12 +38,14 @@ export const ShowFinances = () => {
 
     return (
         <>
-            <section className={classes.showFinancesContainer}>
-                <div className={classes.financesFeed}>
-                    <div>DebtsFeed</div>
-                </div>
-                <div>
-                    <GetValues />
+            <section className={classes.feedComponent}>
+                <div className={classes.showFinancesContainer}>
+                    <div className={classes.financesFeed}>
+                        <h1>DebtsFeed</h1>
+                    </div>
+                    <div className={classes.financesInputContainer}>
+                        <GetValues />
+                    </div>
                 </div>
             </section>
         </>
