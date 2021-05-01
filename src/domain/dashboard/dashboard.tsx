@@ -1,24 +1,13 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import {ShowFinances} from '../show-finances/show-finances';
-import {MainTheme} from '../../themes/main';
 
-export const Dashboard = () => {
-    const useStyles = makeStyles({
-        sectionContainer: {
-            backgroundColor: MainTheme.colors.gray,
-            width: '100%',
-            height: '100vh'
-        }
-    });
+interface DashboardProps {
+    children: React.ReactNode;
+}
 
-    const classes = useStyles();
-
+export const Dashboard = ({children}: DashboardProps) => {
     return (
         <>
-            <section className={classes.sectionContainer}>
-                <ShowFinances />
-            </section>
+            <section>{children}</section>
         </>
     );
 };

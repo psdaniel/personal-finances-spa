@@ -1,13 +1,15 @@
 import React from 'react';
 import {Header} from '../../components/header/header';
-import {Dashboard} from '../../domain/dashboard/dashboard';
+import {Dashboard, DashboardContent} from '../../domain/dashboard/index';
 import {ShowFinances} from '../../domain/show-finances/show-finances';
 
 export const Home = () => {
     return (
         <>
             <Header />
-            <Dashboard />
+            <Dashboard>
+                <DashboardContent />
+            </Dashboard>
         </>
     );
 };

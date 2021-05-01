@@ -1,7 +1,5 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core';
-import {Button} from '../../components/button/button';
-import {Input} from '../../components/input/input';
 import {MainTheme} from '../../themes/main';
 import {GetValues} from '../get-values/get-values';
 
@@ -17,13 +15,14 @@ export const ShowFinances = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            height: 700,
-            width: 700
+            height: 650,
+            width: 650
         },
         financesFeed: {
             width: 500,
             height: 500,
             backgroundColor: '#fefefe',
+            border: `2px solid ${MainTheme.colors.mainYellow}`,
             marginBottom: 4
         },
         financesInputContainer: {
