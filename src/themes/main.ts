@@ -12,11 +12,13 @@ export const MainTheme = {
         color: colors.black
     },
     buttons: {
+        width: 150,
         borderRadius: 4,
         colors: {
             primary: {
                 backgroundColor: colors.mainYellow
-            }
+            },
+            hover: '#FECB39'
         }
     }
 };
