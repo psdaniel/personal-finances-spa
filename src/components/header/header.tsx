@@ -1,17 +1,18 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import {MainTheme} from '../../themes/main';
 
 const useStyles = makeStyles({
     container: {
         display: 'flex',
-        backgroundColor: '#181818',
+        backgroundColor: MainTheme.colors.black,
         height: 100,
         justifyContent: 'center',
         alignItems: 'center'
     },
     textHeader: {
         fontFamily: 'Roboto',
-        color: '#FECB00'
+        color: MainTheme.colors.mainYellow
     }
 });
 
