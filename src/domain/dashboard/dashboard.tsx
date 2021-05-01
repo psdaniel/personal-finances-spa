@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import {ShowDebts} from '../show-debts/show-debts';
+import {ShowFinances} from '../show-finances/show-finances';
 
 export const Dashboard = () => {
     const useStyles = makeStyles({
@@ -16,7 +16,7 @@ export const Dashboard = () => {
     return (
         <>
             <section className={classes.sectionContainer}>
-                <ShowDebts />
+                <ShowFinances />
             </section>
         </>
     );

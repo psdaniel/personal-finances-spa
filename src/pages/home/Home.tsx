@@ -1,7 +1,7 @@
 import React from 'react';
 import {Header} from '../../components/header/header';
 import {Dashboard} from '../../domain/dashboard/dashboard';
-import {ShowDebts} from '../../domain/show-debts/show-debts';
+import {ShowFinances} from '../../domain/show-finances/show-finances';
 
 export const Home = () => {
     return (
