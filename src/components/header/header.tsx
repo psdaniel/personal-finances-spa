@@ -6,7 +6,8 @@ const useStyles = makeStyles({
         display: 'flex',
         backgroundColor: '#181818',
         height: 100,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     textHeader: {
         fontFamily: 'Roboto',
