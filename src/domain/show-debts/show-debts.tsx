@@ -2,11 +2,12 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core';
 import {Button} from '../../components/button/button';
 import {Input} from '../../components/input/input';
+import {MainTheme} from '../../themes/main';
 
 export const ShowDebts = () => {
     const useStyles = makeStyles({
         showDebtsContainer: {
-            backgroundColor: '#212424',
+            backgroundColor: MainTheme.colors['black-2'],
             height: 500
         }
     });
@@ -17,7 +18,7 @@ export const ShowDebts = () => {
         <>
             <section className={classes.showDebtsContainer}>Show Debts</section>
             <div>
-                <Input />
+                <Input type="input" placeholder="Debt" name="debt" id="debt" />
                 <Button />
             </div>
         </>
