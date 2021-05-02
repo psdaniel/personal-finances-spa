@@ -2,6 +2,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core';
 import {MainTheme} from '../../themes/main';
 import {GetValues} from '../get-values/get-values';
+import {useFinancesData} from '../contexts/finances-context.ts/finances-context';
 
 export const ShowFinances = () => {
     const useStyles = makeStyles({
