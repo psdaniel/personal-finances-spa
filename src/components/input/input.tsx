@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {makeStyles} from '@material-ui/core';
 import {MainTheme} from '../../themes/main';
 
@@ -7,9 +7,10 @@ interface InputProps {
     placeholder: string;
     name: string;
     id: string;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input = ({type, placeholder, name, id}: InputProps) => {
+export const Input = ({type, placeholder, name, id, onChange}: InputProps) => {
     const useStyles = makeStyles({
         inputStyle: {
             border: '2px solid',
@@ -39,6 +40,7 @@ export const Input = ({type, placeholder, name, id}: InputProps) => {
                 placeholder={placeholder}
                 name={name}
                 id={id}
+                onChange={onChange}
             />
         </>
     );

@@ -40,9 +40,7 @@ export const ShowFinances = () => {
         <>
             <section className={classes.feedComponent}>
                 <div className={classes.showFinancesContainer}>
-                    <div className={classes.financesFeed}>
-                        <h1>DebtsFeed</h1>
-                    </div>
+                    <div className={classes.financesFeed}></div>
                     <div className={classes.financesInputContainer}>
                         <GetValues />
                     </div>

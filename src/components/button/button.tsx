@@ -1,9 +1,12 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core';
-import {StylesContext} from '@material-ui/styles';
 import {MainTheme} from '../../themes/main';
 
-export const Button = () => {
+interface ButtonProps {
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const Button = ({onClick}: ButtonProps) => {
     const useStyles = makeStyles(() => ({
         buttonStyles: () => ({
             backgroundColor: MainTheme.colors.mainYellow,
@@ -54,5 +57,9 @@ export const Button = () => {
     }));
 
     const classes = useStyles();
-    return <button className={classes.buttonStyles}>Adicionar</button>;
+    return (
+        <button className={classes.buttonStyles} onClick={onClick}>
+            Adicionar
+        </button>
+    );
 };
