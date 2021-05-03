@@ -5,31 +5,44 @@ import {
     FinancesDataProvider,
     useFinancesData
 } from '../contexts/finances-context.ts/finances-context';
+import {getMoney, formatReal, formatCurrencyToLocaleString} from './get-values.utils';
 
 export const GetValues = () => {
-    const [financeValue, setFinanceValue] = useState<string>();
+    const [inputValue, setInputValue] = useState<string>('');
     const [data, setData] = useState({});
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setFinanceValue(event.target.value);
-        if (financeValue) {
-            const valueFormatted = Number(financeValue);
+        if (event.target.value === '') {
+            setInputValue('R$');
+        }
+        setInputValue(formatReal(getMoney(event.target.value)));
+    };
+
+    const handleFocus = () => {
+        console.log('teste');
+    };
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        if (inputValue) {
             setData({
                 data: {
-                    value: valueFormatted
+                    value: inputValue
                 }
             });
         }
     };
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        console.log(event);
-    };
-
-    console.log(data);
-
     return (
         <>
-            <Input type="input" placeholder="Debt" name="debt" id="debt" onChange={handleChange} />
+            <Input
+                type="input"
+                placeholder="R$ 0,00"
+                name="debt"
+                id="debt"
+                onChange={handleChange}
+                onFocus={handleFocus}
+                value={inputValue}
+            />
             <Button onClick={handleClick} />
         </>
     );

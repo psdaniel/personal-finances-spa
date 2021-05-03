@@ -5,12 +5,14 @@ import {MainTheme} from '../../themes/main';
 interface InputProps {
     type: string;
     placeholder: string;
+    value: string;
     name: string;
     id: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-export const Input = ({type, placeholder, name, id, onChange}: InputProps) => {
+export const Input = ({type, placeholder, value, name, id, onChange, onFocus}: InputProps) => {
     const useStyles = makeStyles({
         inputStyle: {
             border: '2px solid',
@@ -38,9 +40,11 @@ export const Input = ({type, placeholder, name, id, onChange}: InputProps) => {
                 className={classes.inputStyle}
                 type={type}
                 placeholder={placeholder}
+                value={value}
                 name={name}
                 id={id}
                 onChange={onChange}
+                onFocus={onFocus}
             />
         </>
     );
