@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/core';
 import {MainTheme} from '../../themes/main';
 import {GetValues} from '../get-values/get-values';
 import {useFinancesData} from '../contexts/finances-context.ts/finances-context';
+import {TotalFinances} from '../total-finances/total-finances';
 
 export const ShowFinances = () => {
     const useStyles = makeStyles({
@@ -16,7 +17,7 @@ export const ShowFinances = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            height: 650,
+            height: 750,
             width: 650
         },
         financesFeed: {
@@ -40,6 +41,7 @@ export const ShowFinances = () => {
         <>
             <section className={classes.feedComponent}>
                 <div className={classes.showFinancesContainer}>
+                    <TotalFinances />
                     <div className={classes.financesFeed}></div>
                     <div className={classes.financesInputContainer}>
                         <GetValues />

@@ -12,7 +12,8 @@ const useStyles = makeStyles({
     },
     textHeader: {
         fontFamily: 'Roboto',
-        color: MainTheme.colors.mainYellow
+        color: MainTheme.colors.mainYellow,
+        fontSize: '3rem'
     }
 });
 
