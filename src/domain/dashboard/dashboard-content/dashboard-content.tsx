@@ -2,6 +2,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import {ShowFinances} from '../../show-finances/show-finances';
 import {MainTheme} from '../../../themes/main';
+import {FinancesDataProvider} from '../../contexts/finances-context/finances-context';
 
 export const DashboardContent = () => {
     const useStyles = makeStyles({
@@ -17,7 +18,9 @@ export const DashboardContent = () => {
     return (
         <>
             <section className={classes.sectionContainer}>
-                <ShowFinances />
+                <FinancesDataProvider>
+                    <ShowFinances />
+                </FinancesDataProvider>
             </section>
         </>
     );

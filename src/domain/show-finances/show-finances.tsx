@@ -2,8 +2,8 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core';
 import {MainTheme} from '../../themes/main';
 import {GetValues} from '../get-values/get-values';
-import {useFinancesData} from '../contexts/finances-context.ts/finances-context';
 import {TotalFinances} from '../total-finances/total-finances';
+import {useFinancesData} from '../contexts/finances-context/finances-context';
 
 export const ShowFinances = () => {
     const useStyles = makeStyles({
@@ -34,6 +34,9 @@ export const ShowFinances = () => {
             width: 500
         }
     });
+
+    const {context} = useFinancesData();
+    console.log(context);
 
     const classes = useStyles();
 

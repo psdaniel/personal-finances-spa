@@ -1,10 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Button} from '../../components/button/button';
 import {Input} from '../../components/input/input';
-import {
-    FinancesDataProvider,
-    useFinancesData
-} from '../contexts/finances-context.ts/finances-context';
 import {getMoney, formatReal, formatCurrencyToLocaleString} from './get-values.utils';
 
 export const GetValues = () => {

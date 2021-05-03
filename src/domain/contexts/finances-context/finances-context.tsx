@@ -6,7 +6,7 @@ interface FinancesDataProviderProps {
     children: any;
 }
 
-const useFinancesData = () => {
+export const useFinancesData = () => {
     const context = React.useContext(FinancesContext);
     if (!context) {
         throw new Error('useFinancesData must be used within a FinancesProvider');
@@ -14,10 +14,10 @@ const useFinancesData = () => {
     return context;
 };
 
-const FinancesDataProvider: React.FC<React.PropsWithChildren<FinancesDataProviderProps>> = () => {
+export const FinancesDataProvider: React.FC<React.PropsWithChildren<FinancesDataProviderProps>> = ({
+    children
+}) => {
     const [data, setData] = React.useState({});
     const value = React.useMemo(() => [data, setData], [data]);
-    return <FinancesContext.Provider value={value} />;
+    return <FinancesContext.Provider value={value}>{children}</FinancesContext.Provider>;
 };
-
-export {FinancesDataProvider, useFinancesData};
