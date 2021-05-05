@@ -1,11 +1,16 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Button} from '../../components/button/button';
 import {Input} from '../../components/input/input';
+import {useFinancesData} from '../contexts/finances-context/finances-context';
 import {getMoney, formatReal, formatCurrencyToLocaleString} from './get-values.utils';
 
 export const GetValues = () => {
     const [inputValue, setInputValue] = useState<string>('');
     const [data, setData] = useState({});
+
+    const {state, dispatch} = useFinancesData();
+
+    console.log(state);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.value === '') {
@@ -39,7 +44,7 @@ export const GetValues = () => {
                 onFocus={handleFocus}
                 value={inputValue}
             />
-            <Button onClick={handleClick} />
+            <Button onClick={() => dispatch({type: 'ADD_DEBT'})} />
         </>
     );
 };

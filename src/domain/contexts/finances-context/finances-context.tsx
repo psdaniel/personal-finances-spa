@@ -23,7 +23,7 @@ function financesReducer(state: State, action: Action) {
             return {...state, revenue: state.revenue + 1};
         }
         default: {
-            throw new Error(`Unhandled action type: ${action.type}`);
+            throw new Error(`Unhandled action type`);
         }
     }
 }
