@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-type Action = {type: 'ADD_DEBT'} | {type: 'ADD_REVENUE'};
+type Action = {type: 'ADD_DEBT'; payload: State} | {type: 'ADD_REVENUE'; payload: State};
 type Dispatch = (action: Action) => void;
-type State = {debt: number; revenue: number};
+export type State = {id: number; debt: string; revenue: number; debtor: string; credor: string};
+//type State = {data: Array<StateType>};
 type FinancesDataProviderProps = {children: React.ReactNode};
 
 const FinancesContext = React.createContext<{state: State; dispatch: Dispatch} | undefined>(
@@ -10,14 +11,22 @@ const FinancesContext = React.createContext<{state: State; dispatch: Dispatch} |
 );
 
 const initialState = {
-    debt: 0,
-    revenue: 0
+    id: 0,
+    debt: '',
+    revenue: 0,
+    debtor: '',
+    credor: ''
 };
 
 function financesReducer(state: State, action: Action) {
     switch (action.type) {
         case 'ADD_DEBT': {
-            return {...state, debt: state.debt + 1};
+            return {
+                ...state,
+                debt: action.payload.debt,
+                debtor: action.payload.debtor,
+                id: state.id + 1
+            };
         }
         case 'ADD_REVENUE': {
             return {...state, revenue: state.revenue + 1};

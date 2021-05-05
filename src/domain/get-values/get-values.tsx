@@ -2,7 +2,7 @@ import React, {ChangeEvent, useState} from 'react';
 import {Button} from '../../components/button/button';
 import {Input} from '../../components/input/input';
 import {useFinancesData} from '../contexts/finances-context/finances-context';
-import {getMoney, formatReal, formatCurrencyToLocaleString} from './get-values.utils';
+import {getMoney, formatReal, formatStringCurrencyToNumber} from './get-values.utils';
 
 export const GetValues = () => {
     const [inputValue, setInputValue] = useState<string>('');
@@ -16,7 +16,7 @@ export const GetValues = () => {
         if (event.target.value === '') {
             setInputValue('R$');
         }
-        setInputValue(formatReal(getMoney(event.target.value)));
+        setInputValue(event.target.value);
     };
 
     const handleFocus = () => {
@@ -25,10 +25,10 @@ export const GetValues = () => {
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         if (inputValue) {
-            setData({
-                data: {
-                    value: inputValue
-                }
+            const inputValueFormatted = formatStringCurrencyToNumber(inputValue);
+            dispatch({
+                type: 'ADD_DEBT',
+                payload: {...state, debt: inputValueFormatted, debtor: 'teste'}
             });
         }
     };
@@ -44,7 +44,7 @@ export const GetValues = () => {
                 onFocus={handleFocus}
                 value={inputValue}
             />
-            <Button onClick={() => dispatch({type: 'ADD_DEBT'})} />
+            <Button onClick={handleClick} />
         </>
     );
 };

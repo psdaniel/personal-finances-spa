@@ -1,3 +1,5 @@
+const regexToRemoveAllDigitsExceptNumbers = /\D+/g;
+
 export const getMoney = (string: string) => parseInt(string.replace(/[\D]+/g, ''));
 
 export const formatReal = (integer: number) => {
@@ -12,3 +14,9 @@ export const formatReal = (integer: number) => {
 
 export const formatCurrencyToLocaleString = (value: number) =>
     value.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+
+export const formatStringCurrencyToNumber = (value: string) => {
+    const formattedValue = value.replace(regexToRemoveAllDigitsExceptNumbers, '');
+
+    return formatCurrencyToLocaleString(Number(formattedValue));
+};

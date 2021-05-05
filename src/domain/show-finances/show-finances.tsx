@@ -37,11 +37,13 @@ export const ShowFinances = () => {
 
     const classes = useStyles();
 
+    const {state} = useFinancesData();
+
     return (
         <>
             <section className={classes.feedComponent}>
                 <div className={classes.showFinancesContainer}>
-                    <TotalFinances />
+                    <TotalFinances data={state} />
                     <div className={classes.financesFeed}></div>
                     <div className={classes.financesInputContainer}>
                         <GetValues />
