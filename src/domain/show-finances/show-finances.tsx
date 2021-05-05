@@ -35,7 +35,7 @@ export const ShowFinances = () => {
         }
     });
 
-    const {context} = useFinancesData();
+    const context = useFinancesData();
     console.log(context);
 
     const classes = useStyles();

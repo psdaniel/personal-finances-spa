@@ -1,23 +1,43 @@
 import * as React from 'react';
 
-const FinancesContext = React.createContext({});
+type Action = {type: 'ADD_DEBT'} | {type: 'ADD_REVENUE'};
+type Dispatch = (action: Action) => void;
+type State = {debt: number; revenue: number};
+type FinancesDataProviderProps = {children: React.ReactNode};
 
-interface FinancesDataProviderProps {
-    children: any;
+const FinancesContext = React.createContext<{state: State; dispatch: Dispatch} | undefined>(
+    undefined
+);
+
+const initialState = {
+    debt: 0,
+    revenue: 0
+};
+
+function financesReducer(state: State, action: Action) {
+    switch (action.type) {
+        case 'ADD_DEBT': {
+            return {...state, debt: state.debt + 1};
+        }
+        case 'ADD_REVENUE': {
+            return {...state, revenue: state.revenue + 1};
+        }
+        default: {
+            throw new Error(`Unhandled action type: ${action.type}`);
+        }
+    }
 }
+
+export const FinancesDataProvider = ({children}: FinancesDataProviderProps) => {
+    const [state, dispatch] = React.useReducer(financesReducer, initialState);
+    const value = {state, dispatch};
+    return <FinancesContext.Provider value={value}>{children}</FinancesContext.Provider>;
+};
 
 export const useFinancesData = () => {
     const context = React.useContext(FinancesContext);
-    if (!context) {
+    if (context === undefined) {
         throw new Error('useFinancesData must be used within a FinancesProvider');
     }
     return context;
-};
-
-export const FinancesDataProvider: React.FC<React.PropsWithChildren<FinancesDataProviderProps>> = ({
-    children
-}) => {
-    const [data, setData] = React.useState({});
-    const value = React.useMemo(() => [data, setData], [data]);
-    return <FinancesContext.Provider value={value}>{children}</FinancesContext.Provider>;
 };
