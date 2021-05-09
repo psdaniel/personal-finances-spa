@@ -1,17 +1,13 @@
 import React, {ChangeEvent, useState} from 'react';
-import {Button} from '../../components/button/button';
 import {Input} from '../../components/input/input';
 import {SwitchComponent} from '../../components/switch-component/switch-component';
 import {useFinancesData} from '../contexts/finances-context/finances-context';
-import {getMoney, formatReal, formatStringCurrencyToNumber} from './get-values.utils';
 
 export const GetValues = () => {
     const [inputValue, setInputValue] = useState<string>('');
     const [data, setData] = useState({});
 
-    const {state, dispatch} = useFinancesData();
-
-    console.log(state);
+    const {state} = useFinancesData();
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.value === '') {
@@ -22,16 +18,6 @@ export const GetValues = () => {
 
     const handleFocus = () => {
         console.log('teste');
-    };
-
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        if (inputValue) {
-            const inputValueFormatted = formatStringCurrencyToNumber(inputValue);
-            dispatch({
-                type: 'ADD_DEBT',
-                payload: {...state, debt: inputValueFormatted, debtor: 'teste'}
-            });
-        }
     };
 
     return (
@@ -45,8 +31,11 @@ export const GetValues = () => {
                 onFocus={handleFocus}
                 value={inputValue}
             />
-            <Button onClick={handleClick} />
-            <SwitchComponent name="switch-value" />
+            <SwitchComponent
+                name="switch-value"
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+            />
         </>
     );
 };

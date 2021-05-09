@@ -1,23 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core';
 import {MainTheme} from '../../themes/main';
 import {CSSProperties} from '@material-ui/styles';
+import {Button} from '../button/button';
+import {useFinancesData} from '../../domain/contexts/finances-context/finances-context';
+import {formatStringCurrencyToNumber} from '../../domain/get-values/get-values.utils';
 
 type SwitchButtonProps = {
     name: string;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    inputValue: string;
+    setInputValue: (inputValue: string) => void;
 };
 
-type CommonStylesType = {
-    width: number;
-    height: number;
-    marginLeft: number;
-    border: string;
-    fontWeight: string;
-    textDecoration: string;
-    color: string;
-};
+enum ButtonTypes {
+    DEFAULT = 'default-button',
+    DEBT = 'debt-button',
+    REVENUE = 'revenue-button'
+}
 
-export const SwitchComponent = ({name}: SwitchButtonProps) => {
+export const SwitchComponent = ({name, onClick, inputValue, setInputValue}: SwitchButtonProps) => {
+    const [buttonType, setButtonType] = useState(ButtonTypes.DEFAULT);
+
     const commonStyles: CSSProperties = {
         width: 100,
         height: 27,
@@ -53,10 +57,25 @@ export const SwitchComponent = ({name}: SwitchButtonProps) => {
     });
 
     const classes = useStyles();
+
+    const {state, dispatch} = useFinancesData();
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        if (inputValue) {
+            const inputValueFormatted = formatStringCurrencyToNumber(inputValue);
+            dispatch({
+                type: 'ADD_DEBT',
+                payload: {...state, debt: inputValueFormatted, debtor: 'teste'}
+            });
+        }
+    };
     return (
-        <div className={classes.switchContainer}>
-            <button className={classes.debtButton}>Debt</button>
-            <button className={classes.revenueButton}>Revenue</button>
-        </div>
+        <>
+            <Button onClick={handleClick} />
+            <div className={classes.switchContainer}>
+                <button className={classes.debtButton}>Debt</button>
+                <button className={classes.revenueButton}>Revenue</button>
+            </div>
+        </>
     );
 };
