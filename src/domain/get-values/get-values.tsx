@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Button} from '../../components/button/button';
 import {Input} from '../../components/input/input';
+import {SwitchComponent} from '../../components/switch-component/switch-component';
 import {useFinancesData} from '../contexts/finances-context/finances-context';
 import {getMoney, formatReal, formatStringCurrencyToNumber} from './get-values.utils';
 
@@ -45,6 +46,7 @@ export const GetValues = () => {
                 value={inputValue}
             />
             <Button onClick={handleClick} />
+            <SwitchComponent name="switch-value" />
         </>
     );
 };

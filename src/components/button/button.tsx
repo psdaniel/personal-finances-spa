@@ -59,7 +59,7 @@ export const Button = ({onClick}: ButtonProps) => {
     const classes = useStyles();
     return (
         <button className={classes.buttonStyles} onClick={onClick}>
-            Adicionar
+            Add
         </button>
     );
 };

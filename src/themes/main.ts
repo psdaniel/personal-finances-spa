@@ -2,7 +2,9 @@ const colors = {
     mainYellow: '#FECB00',
     black: '#181818',
     'black-2': '#212424',
-    gray: '#434141'
+    gray: '#434141',
+    red: '#FF3228',
+    green: '#6FFF28'
 };
 
 export const MainTheme = {
@@ -20,5 +22,11 @@ export const MainTheme = {
             },
             hover: '#FECB39'
         }
+    },
+    debtButton: {
+        hover: '#FF170C'
+    },
+    revenueButton: {
+        hover: '#00FF06'
     }
 };
