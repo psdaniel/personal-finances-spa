@@ -4,7 +4,9 @@ const colors = {
     'black-2': '#212424',
     gray: '#434141',
     red: '#FF3228',
-    green: '#6FFF28'
+    'red-2': '#D80303',
+    green: '#6FFF28',
+    'green-2': '#3B9710'
 };
 
 export const MainTheme = {

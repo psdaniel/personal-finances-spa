@@ -11,27 +11,38 @@ export const TotalFinances = ({data}: TotalFinancesProps) => {
     const useStyles = makeStyles({
         totalFinances: {
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
             width: 500,
-            height: 100
+            height: '4rem'
         },
         textStyle: {
             fontWeight: 'bold',
             color: MainTheme.colors.mainYellow,
             fontSize: '2rem'
+        },
+        totalRevenue: {
+            fontFamily: MainTheme.fonts.main,
+            fontWeight: 'bold',
+            fontSize: '2rem',
+            color: MainTheme.colors['green-2'],
+            marginRight: '2.5rem'
+        },
+        totalDebt: {
+            fontFamily: MainTheme.fonts.main,
+            fontWeight: 'bold',
+            fontSize: '2rem',
+            color: MainTheme.colors['red-2'],
+            marginLeft: '2.5rem'
         }
     });
 
     const classes = useStyles();
     return (
         <>
-            <span className={classes.textStyle}>Total Finances</span>
+            <span className={classes.textStyle}>Total</span>
             <div className={classes.totalFinances}>
-                <span style={{color: 'yellow'}}>Total Debt:{data.debt}</span>
-                <span style={{color: 'yellow', marginBottom: 8}}>
-                    Total Revenue: {data.revenue}
-                </span>
+                <span className={classes.totalRevenue}>R$ 0,00</span>
+                <span className={classes.totalDebt}>R$ 0,00</span>
             </div>
         </>
     );
