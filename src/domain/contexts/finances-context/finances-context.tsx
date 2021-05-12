@@ -2,7 +2,7 @@ import * as React from 'react';
 
 type Action = {type: 'ADD_DEBT'; payload: State} | {type: 'ADD_REVENUE'; payload: State};
 type Dispatch = (action: Action) => void;
-export type State = {id: number; debt: string; revenue: number; debtor: string; credor: string};
+export type State = {id: number; debt: string; revenue: string; debtor: string; credor: string};
 //type State = {data: Array<StateType>};
 type FinancesDataProviderProps = {children: React.ReactNode};
 
@@ -13,7 +13,7 @@ const FinancesContext = React.createContext<{state: State; dispatch: Dispatch} |
 const initialState = {
     id: 0,
     debt: '',
-    revenue: 0,
+    revenue: '',
     debtor: '',
     credor: ''
 };
@@ -29,7 +29,12 @@ function financesReducer(state: State, action: Action) {
             };
         }
         case 'ADD_REVENUE': {
-            return {...state, revenue: state.revenue + 1};
+            return {
+                ...state,
+                revenue: action.payload.revenue,
+                credor: action.payload.credor,
+                id: state.id + 1
+            };
         }
         default: {
             throw new Error(`Unhandled action type`);

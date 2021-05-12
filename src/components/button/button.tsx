@@ -7,16 +7,18 @@ interface ButtonProps {
     buttonText: string;
 }
 interface ButtonKey {
-    addButton: string;
-    revenueButton: string;
-    debtButton: string;
+    addButton?: string;
+    revenueButton?: string;
+    debtButton?: string;
+    addDebtButton: string;
+    addRevenueButton: string;
 }
 
 export const Button = ({onClick, buttonName, buttonText, isDisabled}: ButtonProps) => {
     const classes = useStyles();
 
     return (
-        <button className={`${classes[buttonName]}`} onClick={onClick} disabled={isDisabled}>
+        <button className={classes[buttonName]} onClick={onClick} disabled={isDisabled}>
             {buttonText}
         </button>
     );

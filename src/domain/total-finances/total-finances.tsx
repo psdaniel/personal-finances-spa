@@ -11,8 +11,8 @@ export const TotalFinances = ({data}: TotalFinancesProps) => {
         <>
             <span className={classes.textStyle}>Total</span>
             <div className={classes.totalFinances}>
-                <span className={classes.totalRevenue}>R$ 0,00</span>
-                <span className={classes.totalDebt}>R$ 0,00</span>
+                <span className={classes.totalRevenue}>{data.revenue}</span>
+                <span className={classes.totalDebt}>{data.debt}</span>
             </div>
         </>
     );

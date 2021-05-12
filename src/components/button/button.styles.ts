@@ -14,22 +14,26 @@ const commonStyles: CSSProperties = {
     borderRadius: 4
 };
 
+const commonAddButtonStyles: CSSProperties = {
+    color: MainTheme.colors.black,
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    padding: '1rem',
+    width: MainTheme.buttons.width,
+    height: 62,
+    borderRadius: 4,
+    textAlign: 'center',
+    cursor: 'pointer',
+    border: 'none',
+    textDecoration: 'none',
+    margin: 0,
+    display: 'inline-block'
+};
+
 export const useStyles = makeStyles(() => ({
     addButton: () => ({
+        ...commonAddButtonStyles,
         backgroundColor: MainTheme.colors.mainYellow,
-        color: MainTheme.colors.black,
-        fontSize: '1.2em',
-        fontWeight: 'bold',
-        padding: '1em',
-        width: MainTheme.buttons.width,
-        height: 62,
-        borderRadius: 4,
-        textAlign: 'center',
-        cursor: 'pointer',
-        border: 'none',
-        textDecoration: 'none',
-        margin: 0,
-        display: 'inline-block',
         transition: 'border-radius linear 0.05s, width linear 0.05s',
         position: 'relative',
         '&:focus': {
@@ -38,6 +42,10 @@ export const useStyles = makeStyles(() => ({
         '&:hover': {
             backgroundColor: MainTheme.buttons.colors.hover,
             color: MainTheme.colors.gray
+        },
+        '&:disabled': {
+            opacity: 0.7,
+            cursor: 'initial'
         }
     }),
     debtButton: {
@@ -54,6 +62,14 @@ export const useStyles = makeStyles(() => ({
         '&:hover': {
             backgroundColor: MainTheme.revenueButton.hover
         }
+    },
+    addDebtButton: {
+        ...commonAddButtonStyles,
+        backgroundColor: MainTheme.colors.red
+    },
+    addRevenueButton: {
+        ...commonAddButtonStyles,
+        backgroundColor: MainTheme.colors.green
     },
     animateButton: () => {
         const spinnerWidth = MainTheme.buttons.width / 6;
