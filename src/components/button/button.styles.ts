@@ -1,8 +1,21 @@
 import {makeStyles} from '@material-ui/core';
 import {MainTheme} from '../../themes/main';
+import {CSSProperties} from '@material-ui/styles';
+
+const commonStyles: CSSProperties = {
+    width: 100,
+    height: 27,
+    marginLeft: 4,
+    border: 'none',
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    color: MainTheme.colors.black,
+    cursor: 'pointer',
+    borderRadius: 4
+};
 
 export const useStyles = makeStyles(() => ({
-    buttonStyles: () => ({
+    addButton: () => ({
         backgroundColor: MainTheme.colors.mainYellow,
         color: MainTheme.colors.black,
         fontSize: '1.2em',
@@ -27,6 +40,21 @@ export const useStyles = makeStyles(() => ({
             color: MainTheme.colors.gray
         }
     }),
+    debtButton: {
+        marginBottom: 6,
+        backgroundColor: MainTheme.colors.red,
+        ...commonStyles,
+        '&:hover': {
+            backgroundColor: MainTheme.debtButton.hover
+        }
+    },
+    revenueButton: {
+        backgroundColor: MainTheme.colors.green,
+        ...commonStyles,
+        '&:hover': {
+            backgroundColor: MainTheme.revenueButton.hover
+        }
+    },
     animateButton: () => {
         const spinnerWidth = MainTheme.buttons.width / 6;
         return {

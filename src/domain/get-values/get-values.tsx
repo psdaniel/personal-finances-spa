@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Input} from '../../components/input/input';
-import {SwitchComponent} from '../../components/switch-component/switch-component';
+import {SwitchComponent} from '../switch-component/switch-component';
 import {useFinancesData} from '../contexts/finances-context/finances-context';
 
 export const GetValues = () => {

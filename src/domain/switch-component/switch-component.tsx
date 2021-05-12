@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core';
-import {Button} from '../button/button';
-import {useFinancesData} from '../../domain/contexts/finances-context/finances-context';
-import {formatStringCurrencyToNumber} from '../../domain/get-values/get-values.utils';
+import {Button} from '../../components/button/button';
+import {useFinancesData} from '../contexts/finances-context/finances-context';
+import {formatStringCurrencyToNumber} from '../get-values/get-values.utils';
 import {useStyles} from './switch-component.styles';
 
 type SwitchButtonProps = {
@@ -20,6 +20,7 @@ enum ButtonTypes {
 
 export const SwitchComponent = ({name, onClick, inputValue, setInputValue}: SwitchButtonProps) => {
     const [buttonType, setButtonType] = useState(ButtonTypes.DEFAULT);
+    const [isAddButtonEnabled, setIsAddButtonEnabled] = useState(false);
 
     const classes = useStyles();
 
@@ -36,10 +37,15 @@ export const SwitchComponent = ({name, onClick, inputValue, setInputValue}: Swit
     };
     return (
         <>
-            <Button onClick={handleClick} isDisabled={false} />
+            <Button
+                buttonText="Add"
+                buttonName="addButton"
+                onClick={handleClick}
+                isDisabled={false}
+            />
             <div className={classes.switchContainer}>
-                <button className={classes.debtButton}>Debt</button>
-                <button className={classes.revenueButton}>Revenue</button>
+                <Button buttonText="Debt" buttonName="debtButton" />
+                <Button buttonText="Revenue" buttonName="revenueButton" />
             </div>
         </>
     );
