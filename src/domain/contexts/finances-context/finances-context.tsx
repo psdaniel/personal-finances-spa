@@ -12,8 +12,8 @@ const FinancesContext = React.createContext<{state: State; dispatch: Dispatch} |
 
 const initialState = {
     id: 0,
-    debt: '',
-    revenue: '',
+    debt: 'R$ 0,00',
+    revenue: 'R$ 0,00',
     debtor: '',
     credor: ''
 };
