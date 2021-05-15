@@ -72,6 +72,14 @@ export const SwitchComponent = ({name, onClick, inputValue, setInputValue}: Swit
     console.log(state);
     return (
         <>
+            <div className={classes.switchContainer}>
+                <Button buttonText="Debt" buttonName="debtButton" onClick={handleDebtButtonClick} />
+                <Button
+                    buttonText="Revenue"
+                    buttonName="revenueButton"
+                    onClick={handleRevenueButtonClick}
+                />
+            </div>
             {buttonType === ButtonTypes.DEFAULT ? (
                 <Button
                     buttonText="Add"
@@ -86,14 +94,6 @@ export const SwitchComponent = ({name, onClick, inputValue, setInputValue}: Swit
                     onClick={handleAddClicks[buttonType]}
                 />
             )}
-            <div className={classes.switchContainer}>
-                <Button buttonText="Debt" buttonName="debtButton" onClick={handleDebtButtonClick} />
-                <Button
-                    buttonText="Revenue"
-                    buttonName="revenueButton"
-                    onClick={handleRevenueButtonClick}
-                />
-            </div>
         </>
     );
 };

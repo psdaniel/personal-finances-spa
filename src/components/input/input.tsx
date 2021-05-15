@@ -1,19 +1,29 @@
 import React, {ChangeEvent} from 'react';
 import {useStyles} from './input.styles';
-interface InputProps {
+export interface InputProps {
     type: string;
     placeholder: string;
-    value: string;
+    value?: string;
     name: string;
     id: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+    hasLabel?: boolean;
+    theme: keyof ThemeKeys;
 }
 
-export const Input = ({type, placeholder, value, name, id, onChange, onFocus}: InputProps) => {
-    const classes = useStyles();
+interface ThemeKeys {
+    dark: string;
+    light: string;
+}
+
+export const Input = (props: InputProps) => {
+    const {type, placeholder, value, name, id, onChange, onFocus, hasLabel} = props;
+
+    const classes = useStyles(props);
     return (
         <>
+            {hasLabel ? <label className={classes.inputLabel}>{name}</label> : ''}
             <input
                 className={classes.inputStyle}
                 type={type}

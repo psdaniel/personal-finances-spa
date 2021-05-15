@@ -30,6 +30,7 @@ export const GetValues = () => {
                 onChange={handleChange}
                 onFocus={handleFocus}
                 value={inputValue}
+                theme="light"
             />
             <SwitchComponent
                 name="switch-value"

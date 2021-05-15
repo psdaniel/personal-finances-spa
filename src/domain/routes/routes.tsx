@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Dashboard} from '../dashboard';
@@ -8,7 +9,7 @@ export const ROUTES = [
     {path: '/dashboard', key: 'DASHBOARD', component: <Dashboard />}
 ];
 
-export const RouteWithSubRoutes = (route) => {
+export const RouteWithSubRoutes = (route: any) => {
     return (
         <Route
             path={route.path}

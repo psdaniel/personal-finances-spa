@@ -5,7 +5,7 @@ import {CSSProperties} from '@material-ui/styles';
 const commonStyles: CSSProperties = {
     width: 100,
     height: 27,
-    marginLeft: 4,
+    marginRight: 4,
     border: 'none',
     fontWeight: 'bold',
     textDecoration: 'none',

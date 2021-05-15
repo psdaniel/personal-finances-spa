@@ -1,5 +1,6 @@
 import React from 'react';
+import {LoginContainer} from '../../domain/login-container/login-container';
 
 export const Login = () => {
-    return <h1>Login</h1>;
+    return <LoginContainer />;
 };
